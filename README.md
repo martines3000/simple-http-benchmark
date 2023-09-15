@@ -5,6 +5,7 @@ Simple benchmark where I quickly tested perfomance between Hono (bun), Fastify (
 I tested a simple `Hello World!` example and an example where I issue a verifiable credential. Credential data was hardcoded and issuance was made using the `did:key` method.
 
 Benchmarking tool used [Bombardier](https://github.com/codesenberg/bombardier).
+
 Command: `bombardier --fasthttp -c 500 -d 60s http://localhost:3000/issue`
 
 ## Results
