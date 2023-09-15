@@ -1,0 +1,25 @@
+{
+  "type": "module",
+  "scripts": {
+    "dev": "bun run --hot src/index.ts"
+  },
+  "dependencies": {
+    "@blockchain-lab-um/did-provider-key": "^1.0.7",
+    "@veramo/core": "^5.4.1",
+    "@veramo/credential-w3c": "^5.4.1",
+    "@veramo/data-store": "^5.4.1",
+    "@veramo/did-manager": "^5.4.1",
+    "@veramo/did-provider-ethr": "^5.4.1",
+    "@veramo/did-resolver": "^5.4.1",
+    "@veramo/key-manager": "^5.4.1",
+    "@veramo/kms-local": "^5.4.1",
+    "@veramo/utils": "^5.4.1",
+    "did-resolver": "^4.1.0",
+    "ethr-did-resolver": "^8.1.2",
+    "hono": "^3.6.0",
+    "jose": "^4.14.6"
+  },
+  "devDependencies": {
+    "bun-types": "^0.6.2"
+  }
+}
