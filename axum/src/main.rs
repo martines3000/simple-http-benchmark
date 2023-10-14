@@ -34,7 +34,7 @@ pub struct CredentialRequest {
     pub age: u8,
 }
 
-#[tokio::main(flavor = "multi_thread", worker_threads = 8)]
+#[tokio::main(flavor = "multi_thread", worker_threads = 1)]
 async fn main() {
     let jwk = JWK::generate_secp256k1().unwrap();
 
