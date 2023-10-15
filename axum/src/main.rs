@@ -34,19 +34,19 @@ pub struct CredentialRequest {
     pub age: u8,
 }
 
-#[tokio::main(flavor = "multi_thread", worker_threads = 1)]
+#[tokio::main(flavor = "multi_thread", worker_threads = 2)]
 async fn main() {
     let jwk = JWK::generate_secp256k1().unwrap();
 
     // build our application with a route
     let app = Router::new()
-        .route("/", get(|| async { "Hello, World!" }))
+        .route("/example", get(|| async { "Hello, World!" }))
         .route("/issue", get(issue_credential))
         .route("/verify", post(verify_credential))
         .with_state(jwk);
 
     // Run with hyper
-    let addr = SocketAddr::from(([127, 0, 0, 1], 3000));
+    let addr = SocketAddr::from(([0, 0, 0, 0], 3000));
     tracing::debug!("Listening on {}", addr);
     axum::Server::bind(&addr)
         .serve(app.into_make_service())

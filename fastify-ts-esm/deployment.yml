@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fastify-ts-esm
+  labels:
+    app: fastify-ts-esm
+    type: backend
+spec:
+  template:
+    metadata:
+      labels:
+        app: fastify-ts-esm
+        type: backend
+    spec:
+      containers:
+        - name: fastify-ts-esm
+          imagePullPolicy: Never
+          image: simple-http-benchmark/fastify:latest
+          ports:
+            - containerPort: 3000
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fastify-ts-esm
+      type: backend

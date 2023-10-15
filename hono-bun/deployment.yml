@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hono
+  labels:
+    app: hono
+    type: backend
+spec:
+  template:
+    metadata:
+      labels:
+        app: hono
+        type: backend
+    spec:
+      containers:
+        - name: hono
+          imagePullPolicy: Never
+          image: simple-http-benchmark/hono:latest
+          ports:
+            - containerPort: 3000
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hono
+      type: backend

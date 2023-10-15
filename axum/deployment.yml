@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: axum
+  labels:
+    app: axum
+    type: backend
+spec:
+  template:
+    metadata:
+      labels:
+        app: axum
+        type: backend
+    spec:
+      containers:
+        - name: axum
+          imagePullPolicy: Never
+          image: simple-http-benchmark/axum:latest
+          ports:
+            - containerPort: 3000
+  replicas: 12
+  selector:
+    matchLabels:
+      app: axum
+      type: backend

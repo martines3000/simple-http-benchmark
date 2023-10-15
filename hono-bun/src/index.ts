@@ -9,7 +9,7 @@ const identifier = await agent.didManagerGetByAlias({
 
 const app = new Hono();
 
-app.get("/", (c) => c.text("Hello, world!"));
+app.get("/example", (c) => c.text("Hello, world!"));
 
 app.get("/issue", async (c) => {
   const credential = await agent.createVerifiableCredential({
@@ -41,6 +41,6 @@ app.get("/issue", async (c) => {
 });
 
 export default {
-  port: 3001,
+  port: 3000,
   fetch: app.fetch,
 };
